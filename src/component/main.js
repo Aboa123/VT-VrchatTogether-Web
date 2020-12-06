@@ -62,11 +62,10 @@ function info_image() {
     });
 
     const fadeImg = () => {
-        if(window.scrollY >= 500)
+        if(window.scrollY >= 300)
         {
             setFadeCheck(true);
         }
-        console.log(window.scrollY)
     }
 
     window.addEventListener("scroll",fadeImg);
@@ -99,10 +98,8 @@ const App = () => {
             <Grid className="main-contents">
                 <Cell col={2}></Cell>
                 <Cell col={8}>
-                    <p>
-                        로그인의 필요한 계정은 Vrchat 계정입니다.
-                    </p>
-                    <p>
+                    <p style={{textAlign:"center"}}>
+                        로그인의 필요한 계정은 Vrchat 계정입니다.<br/>
                         Steam 계정과 Oculus 계정은 Vrchat계정으로 전환이 필요합니다.
                     </p>
                     {info_image()}
