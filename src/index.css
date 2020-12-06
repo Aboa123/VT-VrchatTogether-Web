@@ -1,0 +1,144 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color:black;
+  font-size: 20px;
+}
+.header-scroll {
+  background-color: #1484e3;
+}
+.main-grid {
+  display: flex;
+}
+
+.main-grid .main-info {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: url('/imgs/main_background.png') no-repeat center;
+  background-size: cover;
+  padding: 0 5vw;
+}
+
+.main-grid .main-info .main-info-box {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-family: "nMedium";
+  color:#fff;
+  background:rgb(0,0,0,0.5);
+  padding: 20pt 50pt;
+  margin:0 5vw;
+}
+
+.main-grid .main-contents {
+  padding: 20pt;
+}
+.main-grid .main-contents img{
+  margin:15pt;
+}
+
+.main-grid .main-newbie {
+  height: 100vh;
+  background-color: #333;
+}
+
+.main-grid .footer {
+  padding: 40pt 0 150pt 0;
+  background-color: tomato;
+}
+
+.main-grid .app-download {
+  display: flex;
+  position: fixed;
+  width: 250pt;
+  height: 60pt;
+  right: 10pt;
+  bottom: 10pt;
+  justify-content: flex-end;
+}
+
+.main-grid .app-download .app-download-box {
+  display: flex;
+  position:absolute;
+  height:100%;
+  background-color: #1484e3;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-grid .app-download .app-download-box .down-text {
+  color:white;
+  font-family: "nMedium";
+  font-size: 2rem;
+}
+
+@font-face {
+  font-family: "tm-regular";
+  src:url("./css/fonts/TmoneyRoundWindRegular.otf");
+}
+
+@font-face {
+  font-family: "tm-bold";
+  src:url("./css/fonts/TmoneyRoundWindExtraBold.otf");
+}
+
+@font-face {
+  font-family: "nBold";
+  src:url("./css/fonts/NetmarbleB.ttf");
+}
+
+@font-face {
+  font-family: "nLarge";
+  src:url("./css/fonts/NetmarbleL.ttf");
+}
+
+@font-face {
+  font-family: "nMedium";
+  src:url("./css/fonts/NetmarbleM.ttf");
+}
+
+@keyframes font-down {
+  to {
+    background: #1484e3;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .header{
+    animation-duration: 1s;
+    animation-name: font-down;
+    animation-iteration-count : 1;
+    animation-fill-mode: forwards;
+  }
+
+  .main-grid .main-info .main-info-box {
+    font-size: 1.9rem;
+  }
+
+  .main-grid .app-download {
+    width: 90%;
+    height: 50pt;
+  }
+  .main-grid .app-download .app-download-box .down-text {
+    font-size: 1.5rem;   
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+}
