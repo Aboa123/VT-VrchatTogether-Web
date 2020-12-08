@@ -1,4 +1,4 @@
-import React, {useState,useRef,useEffect} from 'react';
+import React, {useState,useRef} from 'react';
 import {Grid, Cell, Content } from 'react-mdl';
 import {animated,useSpring} from 'react-spring';
 
@@ -19,7 +19,7 @@ function app_download() {
         config:{
             duration:100,
         },
-        delay:1000,
+        delay:500,
         from:{
             transform:"translate3d(0,40px,0)",
             opacity:0,
@@ -44,12 +44,159 @@ function app_download() {
     )
 }
 
-function info_image() {
+function info_image_1() {
     const [fadeCheck, setFadeCheck] = useState(false);
 
-    const fade = useSpring({
+    const fadeImage = useSpring({
         config:{
-            duration:1500,
+            duration:300,
+        },
+        delay:500,
+        from:{
+            transform:"translate3d(40px,0,0)",
+            opacity:0,
+        },
+        to:{
+            transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(40px,0,0)" ,
+            opacity:fadeCheck ? 1 : 0,
+        },
+    });
+
+    const fadeText = useSpring({
+        config:{
+            duration:300,
+        },
+        from:{
+            transform:"translate3d(0,-40px,0)",
+            opacity:0,
+        },
+        to:{
+            transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(0,-40px,0)" ,
+            opacity:fadeCheck ? 1 : 0,
+        },
+    });
+
+    const scrollImg = () => {
+        if(window.scrollY >= 400)
+        {
+            setFadeCheck(true);
+        }
+    }
+
+    window.addEventListener("scroll",scrollImg);
+
+    return (
+        <div>
+            <Grid>
+                <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <animated.div style={fadeText}>
+                        <p className="info-image-text">
+                            친구확인
+                        </p>
+                        <p className="info-image-subtext">
+                            온라인 친구와 오프라인친구 목록<br/>
+                            친구의 접속월드 확인<br/>
+                            친구가 제작한 public 아바타, 월드 즐겨찾기가 가능합니다
+                        </p>
+                    </animated.div>
+                </Cell>
+            </Grid>
+            <div>
+                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/2.jpg"}/>
+                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/3.jpg"}/>
+                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/4.jpg"}/>
+                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/5.jpg"}/>
+            </div>
+        </div>
+    )
+}
+
+function info_image_2() {
+    const [fadeCheck, setFadeCheck] = useState(false);
+
+    const fadeImage = useSpring({
+        config:{
+            duration:300,
+        },
+        delay:500,
+        from:{
+            transform:"translate3d(-40px,0,0)",
+            opacity:0,
+        },
+        to:{
+            transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(-40px,0,0)" ,
+            opacity:fadeCheck ? 1 : 0,
+        },
+    });
+
+    const fadeText = useSpring({
+        config:{
+            duration:300,
+        },
+        from:{
+            transform:"translate3d(40px,0,0)",
+            opacity:0,
+        },
+        to:{
+            transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(40px,0,0)" ,
+            opacity:fadeCheck ? 1 : 0,
+        },
+    });
+
+    const scrollImg = () => {
+        if(window.scrollY >= 1000)
+        {
+            setFadeCheck(true);
+        }
+    }
+
+    window.addEventListener("scroll",scrollImg);
+
+    return (
+        <div style={{borderTop:"3px solid #333",borderBottom:"3px solid #333"}}>
+            <Grid>
+                <Cell col={7} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <animated.img style={{...fadeImage,width:"30%"}} src={"../imgs/6.jpg"}/>
+                    <animated.img style={{...fadeImage,width:"30%"}} src={"../imgs/7.jpg"}/>
+                    <animated.img style={{...fadeImage,width:"30%"}} src={"../imgs/4.jpg"}/>
+                </Cell>
+                <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <animated.div style={fadeText}>
+                        <p className="info-image-text">
+                            맵 목록, 아바타목록
+                        </p>
+                        <p className="info-image-subtext">
+                            pulbic 월드와 아바타를 바로 즐겨찾기 하며,<br/>
+                            이미지를 선택하여 제작자의 상세정보를 볼 수 있습니다.
+                        </p>
+                    </animated.div>
+                </Cell>
+            </Grid>
+        </div>
+    )
+}
+
+function info_image_3() {
+    const [fadeCheck, setFadeCheck] = useState(false);
+
+    const fadeImage = useSpring({
+        config:{
+            duration:300,
+        },
+        delay:500,
+        from:{
+            transform:"translate3d(40px,0,0)",
+            opacity:0,
+        },
+        to:{
+            transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(40px,0,0)" ,
+            opacity:fadeCheck ? 1 : 0,
+        },
+    });
+
+    const fadeText = useSpring({
+        config:{
+            duration:300,
         },
         from:{
             transform:"translate3d(-40px,0,0)",
@@ -61,24 +208,34 @@ function info_image() {
         },
     });
 
-    const fadeImg = () => {
-        if(window.scrollY >= 300)
+    const scrollImg = () => {
+        if(window.scrollY >= 1500)
         {
             setFadeCheck(true);
         }
     }
 
-    window.addEventListener("scroll",fadeImg);
+    window.addEventListener("scroll",scrollImg);
 
     return (
         <div>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/1.jpg"}/>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/2.jpg"}/>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/3.jpg"}/>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/4.jpg"}/>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/5.jpg"}/>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/6.jpg"}/>
-            <animated.img style={{...fade,width:"20%"}} src={"../imgs/7.jpg"}/>
+            <Grid>
+                <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <animated.div style={fadeText}>
+                        <p className="info-image-text">
+                            즐겨찾기 관리, 블락관리
+                        </p>
+                        <p className="info-image-subtext">
+                            선택하여 해당 유저의 상세정보를 제공하며,<br/>
+                            블락관리는 자신을 블락한 유저목록까지 제공합니다.
+                        </p>
+                    </animated.div>
+                </Cell>
+                <Cell col={7} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <animated.img style={{...fadeImage,width:"40%"}} src={"../imgs/8.jpg"}/>
+                    <animated.img style={{...fadeImage,width:"40%"}} src={"../imgs/9.jpg"}/>
+                </Cell>
+            </Grid>
         </div>
     )
 }
@@ -96,15 +253,13 @@ const App = () => {
             </section>
             {app_download()}
             <Grid className="main-contents">
-                <Cell col={2}></Cell>
-                <Cell col={8}>
-                    <p style={{textAlign:"center"}}>
-                        로그인의 필요한 계정은 Vrchat 계정입니다.<br/>
-                        Steam 계정과 Oculus 계정은 Vrchat계정으로 전환이 필요합니다.
-                    </p>
-                    {info_image()}
+                <Cell col={1}></Cell>
+                <Cell col={10}>
+                    {info_image_1()}
+                    {info_image_2()}
+                    {info_image_3()}
                 </Cell>
-                <Cell col={2}></Cell>
+                <Cell col={1}></Cell>
             </Grid>
             <Grid className="main-newbie">
                 <Cell col={2}></Cell>

@@ -1,11 +1,12 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import './App.css';
 import {Header, Layout, Navigation, Drawer } from 'react-mdl';
 import Router from './component/router';
+import { useLocation } from 'react-router-dom';
 import {animated,useSpring} from 'react-spring';
 
-const App= () =>{
+const App = () =>{
     const [nav, setNav] = useState(false);
     
     const changeNav = () => {
@@ -29,28 +30,35 @@ const App= () =>{
     });
 
     window.addEventListener("scroll",changeNav);
+    
+    let locate = useLocation();
+    locate = locate.pathname;
 
     return (
-      <div style={{height: '300px', position: 'relative'}}>
         <Layout>
-            <Header className="header" style={{position:"fixed"}}>
-                <animated.div className={nav ? "header-scroll" : ""} style={{...fade,height:"100%",width:"100%",alignItems:"center",display:"flex"}}>
-                    <Navigation style={{justifyContent:"flex-end",width:"100%"}}>
-                        <a href="/">VT</a>
+            {
+                locate != "/" &&
+                <Header id="header" className="header" style={{position:"fixed"}}>
+                    <animated.div className={nav ? "header-scroll" : ""} style={{...fade,height:"100%",width:"100%",alignItems:"center",display:"flex"}}>
+                        <Navigation style={{justifyContent:"flex-end",width:"100%"}}>
+                            <a href="/">VT</a>
+                        </Navigation>
+                    </animated.div>
+                </Header>
+            }
+            {
+                locate != "/" &&
+                <Drawer title="Title">
+                    <Navigation>
+                        <a href="#">Link</a>
+                        <a href="#">Link</a>
+                        <a href="#">Link</a>
+                        <a href="#">Link</a>
                     </Navigation>
-                </animated.div>
-            </Header>
-            <Drawer title="Title">
-                <Navigation>
-                    <a href="#">Link</a>
-                    <a href="#">Link</a>
-                    <a href="#">Link</a>
-                    <a href="#">Link</a>
-                </Navigation>
-            </Drawer>
+                </Drawer>
+            }
             <Router/>
         </Layout>
-    </div>
     );
 }
 

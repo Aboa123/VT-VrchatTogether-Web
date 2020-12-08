@@ -1,7 +1,9 @@
-import React, {useState,useRef,useEffect} from 'react';
-import {Grid, Cell, Content } from 'react-mdl';
+import React, {useState} from 'react';
+import {Content} from 'react-mdl';
 import {Redirect} from 'react-router-dom';
 import {animated,useSpring} from 'react-spring';
+
+const test = "test";
 
 const App = () => {
     const progress = useSpring({
@@ -64,21 +66,20 @@ const App = () => {
             width: "0%"
         },
         to: {
-            // width: "200%"
+            width: "200%"
         }
     });
 
     const [url,setUrl] = useState(false);
 
     setTimeout(()=>{
-        // setUrl(true);
+        setUrl(true);
     },4000);
 
     return(
-        <Content className="main-grid">
-            
-            <section className="main-info" style={{zIndex:2}}>
-                <div className="main-info-box">
+        <Content className="loading-grid">
+            <section className="loading-info" style={{zIndex:2}}>
+                <div className="loading-info-box">
                     <animated.span style={{
                         opacity:fadeText.opacity,
                         transform:fadeText.scale
