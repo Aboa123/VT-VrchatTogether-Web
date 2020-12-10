@@ -3,8 +3,6 @@ import {Content} from 'react-mdl';
 import {Redirect} from 'react-router-dom';
 import {animated,useSpring} from 'react-spring';
 
-const test = "test";
-
 const App = () => {
     const progress = useSpring({
         config:{

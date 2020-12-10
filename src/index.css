@@ -114,12 +114,44 @@ a {
 
 .main-grid .main-newbie {
   height: 100vh;
-  background-color: #333;
+  background-color: #f7f8f9;
+  text-align: center;
+}
+
+.main-grid .main-newbie .main-newbie-title {
+  font-family: "nBold";
+  font-size: 2.5rem;
+  line-height: normal;
+}
+
+.main-grid .main-newbie .main-newbie-subtext {
+  font-family: "nMedium";
+  font-size: 1.5rem;
+  line-height: normal;
+  color: #888c8b;
 }
 
 .main-grid .footer {
-  padding: 40pt 0 150pt 0;
-  background-color: tomato;
+  padding: 40pt 0 80pt 0;
+  background-color: #f1f3f4;
+  color: #383838;
+}
+
+.main-grid .footer .footer-info {
+  font-family: "nLarge";
+  font-size: 1.3rem;
+}
+
+.main-grid .footer .footer-link {
+  font-family: "nLarge";
+  font-size: 1.1rem;
+  margin: 2pt 0;
+  text-decoration: #383838 underline;
+}
+
+.main-grid .footer img {
+  vertical-align: sub;
+  margin-right: 5pt;
 }
 
 .main-grid .app-download {
@@ -146,6 +178,16 @@ a {
   color:white;
   font-family: "nMedium";
   font-size: 2rem;
+}
+
+.main-grid .down-arrow {
+  position: fixed;
+  width: 250pt;
+  height: 60pt;
+  bottom: 40pt;
+  left: 50%;
+  z-index: 1;
+  font-size: 1.5rem;
 }
 
 @font-face {

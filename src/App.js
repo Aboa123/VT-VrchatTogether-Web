@@ -37,7 +37,7 @@ const App = () =>{
     return (
         <Layout>
             {
-                locate != "/" &&
+                locate !== "/" &&
                 <Header id="header" className="header" style={{position:"fixed"}}>
                     <animated.div className={nav ? "header-scroll" : ""} style={{...fade,height:"100%",width:"100%",alignItems:"center",display:"flex"}}>
                         <Navigation style={{justifyContent:"flex-end",width:"100%"}}>
@@ -47,7 +47,7 @@ const App = () =>{
                 </Header>
             }
             {
-                locate != "/" &&
+                locate !== "/" &&
                 <Drawer title="Title">
                     <Navigation>
                         <a href="#">Link</a>

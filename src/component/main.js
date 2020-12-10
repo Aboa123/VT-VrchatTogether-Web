@@ -1,4 +1,4 @@
-import React, {useState,useRef} from 'react';
+import React, {useState} from 'react';
 import {Grid, Cell, Content } from 'react-mdl';
 import {animated,useSpring} from 'react-spring';
 
@@ -31,7 +31,7 @@ function app_download() {
     });
 
     return (
-        <a href={"https://hello.vrchat.com/"} target="blank" className="app-download">
+        <a href={"https://play.google.com/store/apps/details?id=com.vrct"} target="blank" className="app-download">
             <animated.div className="app-download-box" style={fade}>
                 <animated.img src={'../imgs/app_icon.png'} style={{...text,width:"80pt",top:-40,left:-40,position:"absolute"}}/>
                 <div style={{height:"30pt",overflow:"hidden"}}>
@@ -104,7 +104,7 @@ function info_image_1() {
             <div>
                 <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/2.jpg"}/>
                 <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/3.jpg"}/>
-                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/4.jpg"}/>
+                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/10.jpg"}/>
                 <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/5.jpg"}/>
             </div>
         </div>
@@ -190,7 +190,7 @@ function info_image_3() {
         },
         to:{
             transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(40px,0,0)" ,
-            opacity:fadeCheck ? 1 : 0,
+            opacity: fadeCheck ? 1 : 0,
         },
     });
 
@@ -220,7 +220,7 @@ function info_image_3() {
     return (
         <div>
             <Grid>
-                <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                <Cell col={6} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                     <animated.div style={fadeText}>
                         <p className="info-image-text">
                             즐겨찾기 관리, 블락관리
@@ -231,7 +231,7 @@ function info_image_3() {
                         </p>
                     </animated.div>
                 </Cell>
-                <Cell col={7} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                <Cell col={6} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                     <animated.img style={{...fadeImage,width:"40%"}} src={"../imgs/8.jpg"}/>
                     <animated.img style={{...fadeImage,width:"40%"}} src={"../imgs/9.jpg"}/>
                 </Cell>
@@ -241,17 +241,112 @@ function info_image_3() {
 }
 
 const App = () => {
+    
+    const upText = useSpring({
+        config:{
+            duration: 500
+        },
+        from: {
+            transform:"translate3d(0, 60pt, 0)"
+        },
+        to: {
+            transform:"translate3d(0, 0px, 0)"
+        }
+    });
+
+    const upText2 = useSpring({
+        config:{
+            duration: 500
+        },
+        delay:500,
+        from: {
+            transform:"translate3d(0, 60pt, 0)"
+        },
+        to: {
+            transform:"translate3d(0, 0px, 0)"
+        }
+    });
+
+    const [aniCheck,setAniCheck] = useState(false);
+    const [hideCheck, setHideCheck] = useState(false);
+
+    const jumpText = useSpring({
+        config: {
+            tension:2000000,
+            friction: 100,
+            duration:100
+        },
+        from: {
+            transform: "translate3d(0,0px,0)"
+        },
+        to: [
+            {transform:"translate3d(0,10px,0)"},
+            {transform:"translate3d(0,-3px,0)"},
+            {transform:"translate3d(0,5px,0)"},
+            {transform:"translate3d(0,-3px,0)"}
+        ],
+        onRest:()=>{
+            
+            if(aniCheck)
+            {
+                setAniCheck(false)
+            }
+            else
+            {
+                setAniCheck(true)
+            }
+        },
+        reset: aniCheck,
+        reverse: aniCheck
+    });
+
+    const hideArrow = useSpring({
+        config:{
+            duration:300,
+        },
+        from:{
+            opacity:1,
+        },
+        to:{
+            opacity: hideCheck ? 0 : 1,
+        },
+    });
+
+    const scroll = () => {
+        if(window.scrollY >= 80)
+        {
+            setHideCheck(true);
+        }
+        else
+        {
+            setHideCheck(false);
+        }
+    }
+
+    window.addEventListener("scroll",scroll);
+
     return(
         <Content className="main-grid">
             <section className="main-info">
                 <div className="main-info-box">
-                    언제 어디서나 간단하게<br/>
-                    <span style={{color:"#1484e3"}}>
-                    <b>V</b>rchat <b>T</b>ogether
-                    </span>
+                    <div style={{height:"60pt",overflow:"hidden"}}>
+                        <animated.div style={upText}>
+                            언제 어디서나 간단하게<br/>
+                        </animated.div>
+                    </div>
+                    <div style={{color:"#1484e3",height:"60pt",overflow:"hidden"}}>
+                        <animated.div style={upText2}>
+                            <b>V</b>rchat <b>T</b>ogether
+                        </animated.div>
+                    </div>
                 </div>
             </section>
             {app_download()}
+            <div className="down-arrow">
+                <animated.span className="material-icons" style={{...jumpText,...hideArrow,color:"#1484e3",fontSize:"3rem"}}>
+                    arrow_circle_down
+                </animated.span>
+            </div>
             <Grid className="main-contents">
                 <Cell col={1}></Cell>
                 <Cell col={10}>
@@ -262,18 +357,53 @@ const App = () => {
                 <Cell col={1}></Cell>
             </Grid>
             <Grid className="main-newbie">
-                <Cell col={2}></Cell>
-                <Cell col={8}>
-                    3
+                <Cell col={1}></Cell>
+                <Cell col={10}>
+                    <p className="main-newbie-title">
+                        친구가 없어서 설치할 이유가 없다고 말하는 당신!
+                    </p>
+                    <p className="main-newbie-subtext">
+                        Vrchat에는 여러사람을 만날수있는 다양한 교류회가 진행중입니다.<br/>
+                        해당 캘린더는 <a href="https://sites.google.com/view/vrcevent-kr" target="blank">이곳</a>에서 제공됩니다.
+                    </p>
+                    <iframe 
+                    width="90%"
+                    height="80%"
+                    frameBorder="none"
+                    src="https://calendar.google.com/calendar/u/0/embed?color=%239fe1e7&deb=-&embed_style=WyJhdDplbWI6c3QiLCIjZTBlMGUwIiwiI2VkZWRlZCIsIiM0MTg0ZjMiLCJyb2JvdG8iLCIjNjM2MzYzIiw1MDAsIiNmZmYiXQo&eopt=0&mode=month&showCalendars=1&showPrint=0&showTz=0&src=vrchatcalendarkr@gmail.com"/>
                 </Cell>
-                <Cell col={2}></Cell>
+                <Cell col={1}></Cell>
             </Grid>
             <Grid className="footer">
-                <Cell col={2}></Cell>
-                <Cell col={8}>
-                    App 문의
+                <Cell col={1}></Cell>
+                <Cell col={10}>
+                    <Grid>
+                        <Cell col={6}>
+                            <p className="footer-info">
+                                VT는 비공식 앱입니다.<br/>
+                                앱을 악용할 경우 Vrchat 계정을 정지 당할 수 있습니다.<br/>
+                                그에 따른 책임은 사용자에게 있으며,<br/>
+                                해당 앱을 사용하는 것은 이 부분의 동의하는 것으로 간주합니다.<br/>
+                            </p>
+                        </Cell>
+                        <Cell col={6}>
+                            <a href="https://github.com/Aboa123/VT-VrchatTogether-">
+                                <p className="footer-link">
+                                    <img width="20" src="../imgs/git.png"/>GitHub<br/>
+                                </p>
+                            </a>
+                            <a href="https://twitter.com/AboaVT">
+                                <p className="footer-link">
+                                    <img width="20" src="../imgs/twitter.png"/>Twitter<br/>
+                                </p>
+                            </a>
+                            <p className="footer-link">
+                                <img width="20" src="../imgs/discord.png"/>Aboa#9076<br/>
+                            </p>
+                        </Cell>
+                    </Grid>
                 </Cell>
-                <Cell col={2}></Cell>
+                <Cell col={1}></Cell>
             </Grid>
         </Content>
     )
