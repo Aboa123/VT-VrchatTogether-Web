@@ -29,7 +29,11 @@ const App = () =>{
         }
     });
 
-    window.addEventListener("scroll",changeNav);
+    
+    useState(()=>{
+        window.addEventListener("scroll",changeNav);
+        return () => window.removeEventListener("scroll",changeNav);
+    },nav)
     
     let locate = useLocation();
     locate = locate.pathname;

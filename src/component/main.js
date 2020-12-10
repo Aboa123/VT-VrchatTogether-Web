@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Grid, Cell, Content } from 'react-mdl';
 import {animated,useSpring} from 'react-spring';
 
@@ -44,6 +44,76 @@ function app_download() {
     )
 }
 
+function down_arrow() {
+    const [arrowCheck,setArrowCheck] = useState(false);
+
+    const jumpText = useSpring({
+        config: {
+            tension:2000000,
+            friction: 100,
+            duration:100
+        },
+        from: {
+            transform: "translate3d(0,0px,0)"
+        },
+        to: [
+            {transform:"translate3d(0,-10px,0)"},
+            {transform:"translate3d(0,-7px,0)"},
+            {transform:"translate3d(0,5px,0)"},
+            {transform:"translate3d(0,-3px,0)"},
+            {transform:"translate3d(0,5px,0)"},
+            {transform:"translate3d(0,-3px,0)"},
+            {transform:"translate3d(0,0px,0)"},
+        ],
+        onRest:()=>{
+            if(arrowCheck)
+            {
+                setArrowCheck(false)
+            }
+            else
+            {
+                setArrowCheck(true)
+            }
+        },
+        reset: arrowCheck,
+        reverse:arrowCheck
+    });
+
+    const [hideCheck,setHideCheck] = useState(true);
+
+    const hideArrow = useSpring({
+        from: {
+            opacity: 1,
+        },
+        to: {
+            opacity: hideCheck ? 1 : 0,
+        }
+    });
+    
+    const scroll = () => {
+        if(window.scrollY >= 80)
+        {
+            setHideCheck(false);
+        }
+        else
+        {
+            setHideCheck(true);
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener("scroll",scroll);
+    });
+
+    return (
+        <div className="down-arrow">
+            <animated.span class="material-icons" style={{...jumpText,...hideArrow,color:"#1484e3"}}>
+                arrow_circle_down
+            </animated.span>
+        </div>
+    )
+}
+
 function info_image_1() {
     const [fadeCheck, setFadeCheck] = useState(false);
 
@@ -83,7 +153,10 @@ function info_image_1() {
         }
     }
 
-    window.addEventListener("scroll",scrollImg);
+    useEffect(()=>{
+        window.addEventListener("scroll",scrollImg);
+        return () => window.removeEventListener("scroll",scrollImg);
+    });
 
     return (
         <div>
@@ -150,7 +223,10 @@ function info_image_2() {
         }
     }
 
-    window.addEventListener("scroll",scrollImg);
+    useEffect(()=>{
+        window.addEventListener("scroll",scrollImg);
+        return () => window.removeEventListener("scroll",scrollImg);
+    });
 
     return (
         <div style={{borderTop:"3px solid #333",borderBottom:"3px solid #333"}}>
@@ -190,7 +266,7 @@ function info_image_3() {
         },
         to:{
             transform: fadeCheck ? "translate3d(0,0,0)" :"translate3d(40px,0,0)" ,
-            opacity: fadeCheck ? 1 : 0,
+            opacity:fadeCheck ? 1 : 0,
         },
     });
 
@@ -215,7 +291,10 @@ function info_image_3() {
         }
     }
 
-    window.addEventListener("scroll",scrollImg);
+    useEffect(()=>{
+        window.addEventListener("scroll",scrollImg);
+        return () => window.removeEventListener("scroll",scrollImg);
+    });
 
     return (
         <div>
@@ -267,64 +346,6 @@ const App = () => {
         }
     });
 
-    const [aniCheck,setAniCheck] = useState(false);
-    const [hideCheck, setHideCheck] = useState(false);
-
-    const jumpText = useSpring({
-        config: {
-            tension:2000000,
-            friction: 100,
-            duration:100
-        },
-        from: {
-            transform: "translate3d(0,0px,0)"
-        },
-        to: [
-            {transform:"translate3d(0,10px,0)"},
-            {transform:"translate3d(0,-3px,0)"},
-            {transform:"translate3d(0,5px,0)"},
-            {transform:"translate3d(0,-3px,0)"}
-        ],
-        onRest:()=>{
-            
-            if(aniCheck)
-            {
-                setAniCheck(false)
-            }
-            else
-            {
-                setAniCheck(true)
-            }
-        },
-        reset: aniCheck,
-        reverse: aniCheck
-    });
-
-    const hideArrow = useSpring({
-        config:{
-            duration:300,
-        },
-        from:{
-            opacity:1,
-        },
-        to:{
-            opacity: hideCheck ? 0 : 1,
-        },
-    });
-
-    const scroll = () => {
-        if(window.scrollY >= 80)
-        {
-            setHideCheck(true);
-        }
-        else
-        {
-            setHideCheck(false);
-        }
-    }
-
-    window.addEventListener("scroll",scroll);
-
     return(
         <Content className="main-grid">
             <section className="main-info">
@@ -342,11 +363,7 @@ const App = () => {
                 </div>
             </section>
             {app_download()}
-            <div className="down-arrow">
-                <animated.span className="material-icons" style={{...jumpText,...hideArrow,color:"#1484e3",fontSize:"3rem"}}>
-                    arrow_circle_down
-                </animated.span>
-            </div>
+            {down_arrow()}
             <Grid className="main-contents">
                 <Cell col={1}></Cell>
                 <Cell col={10}>
