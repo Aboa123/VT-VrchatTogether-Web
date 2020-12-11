@@ -36,7 +36,7 @@ function app_download() {
                 <animated.img src={'../imgs/app_icon.png'} style={{...text,width:"80pt",top:-40,left:-40,position:"absolute"}}/>
                 <div style={{height:"30pt",overflow:"hidden"}}>
                     <animated.div className="down-text" style={text}>
-                        지금바로 다운로드
+                        지금 바로 다운로드
                     </animated.div>
                 </div>
             </animated.div>
@@ -160,20 +160,18 @@ function info_image_1() {
 
     return (
         <div>
-            <Grid>
-                <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                    <animated.div style={fadeText}>
-                        <p className="info-image-text">
-                            친구확인
-                        </p>
-                        <p className="info-image-subtext">
-                            온라인 친구와 오프라인친구 목록<br/>
-                            친구의 접속월드 확인<br/>
-                            친구가 제작한 public 아바타, 월드 즐겨찾기가 가능합니다
-                        </p>
-                    </animated.div>
-                </Cell>
-            </Grid>
+            <div style={{display:"flex",alignItems:"center"}}>
+                <animated.div style={fadeText}>
+                    <p className="info-image-text">
+                        친구확인
+                    </p>
+                    <p className="info-image-subtext">
+                        온라인 친구와 오프라인친구 목록<br/>
+                        친구의 접속월드 확인<br/>
+                        친구가 제작한 public 아바타, 월드 즐겨찾기가 가능합니다
+                    </p>
+                </animated.div>
+            </div>
             <div>
                 <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/2.jpg"}/>
                 <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/3.jpg"}/>
@@ -339,7 +337,7 @@ const App = () => {
         },
         delay:500,
         from: {
-            transform:"translate3d(0, 60pt, 0)"
+            transform:"translate3d(0, 70pt, 0)"
         },
         to: {
             transform:"translate3d(0, 0px, 0)"
@@ -351,12 +349,12 @@ const App = () => {
             <section className="main-info">
                 <div className="main-info-box">
                     <div style={{height:"60pt",overflow:"hidden"}}>
-                        <animated.div style={upText}>
+                        <animated.div style={{...upText,fontSize:"3.5rem"}}>
                             언제 어디서나 간단하게<br/>
                         </animated.div>
                     </div>
-                    <div style={{color:"#1484e3",height:"60pt",overflow:"hidden"}}>
-                        <animated.div style={upText2}>
+                    <div style={{color:"#1484e3",height:"70pt",overflow:"hidden"}}>
+                        <animated.div style={{...upText2,fontSize:"4.8rem"}}>
                             <b>V</b>rchat <b>T</b>ogether
                         </animated.div>
                     </div>
@@ -388,37 +386,6 @@ const App = () => {
                     height="80%"
                     frameBorder="none"
                     src="https://calendar.google.com/calendar/u/0/embed?color=%239fe1e7&deb=-&embed_style=WyJhdDplbWI6c3QiLCIjZTBlMGUwIiwiI2VkZWRlZCIsIiM0MTg0ZjMiLCJyb2JvdG8iLCIjNjM2MzYzIiw1MDAsIiNmZmYiXQo&eopt=0&mode=month&showCalendars=1&showPrint=0&showTz=0&src=vrchatcalendarkr@gmail.com"/>
-                </Cell>
-                <Cell col={1}></Cell>
-            </Grid>
-            <Grid className="footer">
-                <Cell col={1}></Cell>
-                <Cell col={10}>
-                    <Grid>
-                        <Cell col={6}>
-                            <p className="footer-info">
-                                VT는 비공식 앱입니다.<br/>
-                                앱을 악용할 경우 Vrchat 계정을 정지 당할 수 있습니다.<br/>
-                                그에 따른 책임은 사용자에게 있으며,<br/>
-                                해당 앱을 사용하는 것은 이 부분의 동의하는 것으로 간주합니다.<br/>
-                            </p>
-                        </Cell>
-                        <Cell col={6}>
-                            <a href="https://github.com/Aboa123/VT-VrchatTogether-">
-                                <p className="footer-link">
-                                    <img width="20" src="../imgs/git.png"/>GitHub<br/>
-                                </p>
-                            </a>
-                            <a href="https://twitter.com/AboaVT">
-                                <p className="footer-link">
-                                    <img width="20" src="../imgs/twitter.png"/>Twitter<br/>
-                                </p>
-                            </a>
-                            <p className="footer-link">
-                                <img width="20" src="../imgs/discord.png"/>Aboa#9076<br/>
-                            </p>
-                        </Cell>
-                    </Grid>
                 </Cell>
                 <Cell col={1}></Cell>
             </Grid>
