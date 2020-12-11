@@ -90,7 +90,7 @@ const App = () => {
                         .interpolate(x => `scale(${x})`)}}>
                         <b>V</b>rchat <b>T</b>ogether
                     </animated.span>
-                    <div style={{width:"100%",height:"55pt",display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <div className="progress">
                         <animated.div style={{...jumpText,position:"absolute",display:"flex",justifyContent:"center",alignItems:"center"}}>
                             {progress.text.interpolate(x => Math.floor(x*1))}
                         </animated.div>

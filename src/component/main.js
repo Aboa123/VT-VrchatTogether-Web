@@ -348,13 +348,13 @@ const App = () => {
         <Content className="main-grid">
             <section className="main-info">
                 <div className="main-info-box">
-                    <div style={{height:"60pt",overflow:"hidden"}}>
-                        <animated.div style={{...upText,fontSize:"3.5rem"}}>
+                    <div style={{height:"70pt",overflow:"hidden"}}>
+                        <animated.div style={upText} className="main-info-title">
                             언제 어디서나 간단하게<br/>
                         </animated.div>
                     </div>
                     <div style={{color:"#1484e3",height:"70pt",overflow:"hidden"}}>
-                        <animated.div style={{...upText2,fontSize:"4.8rem"}}>
+                        <animated.div style={upText2} className="main-info-subtitle">
                             <b>V</b>rchat <b>T</b>ogether
                         </animated.div>
                     </div>
