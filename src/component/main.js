@@ -172,11 +172,11 @@ function info_image_1() {
                     </p>
                 </animated.div>
             </div>
-            <div>
-                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/2.jpg"}/>
-                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/3.jpg"}/>
-                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/10.jpg"}/>
-                <animated.img style={{...fadeImage,width:"20%"}} src={"../imgs/5.jpg"}/>
+            <div className="main-contents-img-1">
+                <animated.img style={fadeImage} src={"../imgs/2.jpg"}/>
+                <animated.img style={fadeImage} src={"../imgs/3.jpg"}/>
+                <animated.img style={fadeImage} src={"../imgs/10.jpg"}/>
+                <animated.img style={fadeImage} src={"../imgs/5.jpg"}/>
             </div>
         </div>
     )
@@ -229,10 +229,10 @@ function info_image_2() {
     return (
         <div style={{borderTop:"3px solid #333",borderBottom:"3px solid #333"}}>
             <Grid>
-                <Cell col={7} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                    <animated.img style={{...fadeImage,width:"30%"}} src={"../imgs/6.jpg"}/>
-                    <animated.img style={{...fadeImage,width:"30%"}} src={"../imgs/7.jpg"}/>
-                    <animated.img style={{...fadeImage,width:"30%"}} src={"../imgs/4.jpg"}/>
+                <Cell col={7} className="main-contents-img-2">
+                    <animated.img style={fadeImage} src={"../imgs/6.jpg"}/>
+                    <animated.img style={fadeImage} src={"../imgs/7.jpg"}/>
+                    <animated.img style={fadeImage} src={"../imgs/4.jpg"}/>
                 </Cell>
                 <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                     <animated.div style={fadeText}>
@@ -308,9 +308,9 @@ function info_image_3() {
                         </p>
                     </animated.div>
                 </Cell>
-                <Cell col={6} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                    <animated.img style={{...fadeImage,width:"40%"}} src={"../imgs/8.jpg"}/>
-                    <animated.img style={{...fadeImage,width:"40%"}} src={"../imgs/9.jpg"}/>
+                <Cell col={6} className="main-contents-img-3">
+                    <animated.img style={fadeImage} src={"../imgs/8.jpg"}/>
+                    <animated.img style={fadeImage} src={"../imgs/9.jpg"}/>
                 </Cell>
             </Grid>
         </div>
