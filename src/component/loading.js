@@ -94,8 +94,8 @@ const App = () => {
                         <animated.div style={{...jumpText,position:"absolute",display:"flex",justifyContent:"center",alignItems:"center"}}>
                             {progress.text.interpolate(x => Math.floor(x*1))}
                         </animated.div>
-                        <div style={{width:"100%",height:"100%",border:"1px solid #1484e3",borderRadius:10}}>
-                            <animated.div style={{height:"100%",borderRadius:5,width:progress.width,background:"#1484e3"}}/>
+                        <div style={{width:"100%",height:"100%",borderRadius:10,overflow:"hidden"}}>
+                            <animated.div className="progress-bar" style={{width:progress.width}}/>
                         </div>
                     </div>
                 </div>

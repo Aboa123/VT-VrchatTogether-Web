@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Grid, Cell, Content } from 'react-mdl';
+import {Image} from 'antd';
 import {animated,useSpring} from 'react-spring';
 
-function app_download() {
+const App_download = () => {
+    const [fadeCheck,setFadeCheck] = useState(false);
+
     const fade = useSpring({
         config:{
             duration: 500,
@@ -12,21 +15,26 @@ function app_download() {
         },
         to: {
             width:"100%"
+        },
+        onRest:() => {
+            if(!fadeCheck)
+            {
+                setFadeCheck(true);
+            }
         }
     });
     
     const text = useSpring({
         config:{
-            duration:100,
+            duration:500,
         },
-        delay:500,
         from:{
             transform:"translate3d(0,40px,0)",
             opacity:0,
         },
         to:{
-            transform:"translate3d(0,0,0)",
-            opacity:1,
+            transform: fadeCheck ? "translate3d(0,0px,0)" : "translate3d(0,40px,0)",
+            opacity: fadeCheck ? 1 : 0,
         },
     });
 
@@ -44,27 +52,21 @@ function app_download() {
     )
 }
 
-function down_arrow() {
+const Down_arrow = () => {
     const [arrowCheck,setArrowCheck] = useState(false);
 
-    const jumpText = useSpring({
+    const jumpArrow = useSpring({
         config: {
-            tension:2000000,
+            tension: 200,
             friction: 100,
-            duration:100
+            duration: 200
         },
         from: {
             transform: "translate3d(0,0px,0)"
         },
-        to: [
-            {transform:"translate3d(0,-10px,0)"},
-            {transform:"translate3d(0,-7px,0)"},
-            {transform:"translate3d(0,5px,0)"},
-            {transform:"translate3d(0,-3px,0)"},
-            {transform:"translate3d(0,5px,0)"},
-            {transform:"translate3d(0,-3px,0)"},
-            {transform:"translate3d(0,0px,0)"},
-        ],
+        to: {
+            transform:"translate3d(0,-10px,0)"
+        },
         onRest:()=>{
             if(arrowCheck)
             {
@@ -76,14 +78,14 @@ function down_arrow() {
             }
         },
         reset: arrowCheck,
-        reverse:arrowCheck
+        reverse: arrowCheck
     });
 
     const [hideCheck,setHideCheck] = useState(true);
 
     const hideArrow = useSpring({
         from: {
-            opacity: 1,
+            opacity: hideArrow ? 1 : 0,
         },
         to: {
             opacity: hideCheck ? 1 : 0,
@@ -107,21 +109,20 @@ function down_arrow() {
 
     return (
         <div className="down-arrow">
-            <animated.span class="material-icons" style={{...jumpText,...hideArrow,color:"#1484e3"}}>
+            <animated.span class="material-icons" style={{...jumpArrow,...hideArrow,color:"#1484e3"}}>
                 arrow_circle_down
             </animated.span>
         </div>
     )
 }
 
-function info_image_1() {
+const Info_image_1 = () => {
     const [fadeCheck, setFadeCheck] = useState(false);
 
     const fadeImage = useSpring({
         config:{
-            duration:300,
+            duration:500,
         },
-        delay:500,
         from:{
             transform:"translate3d(40px,0,0)",
             opacity:0,
@@ -155,7 +156,6 @@ function info_image_1() {
 
     useEffect(()=>{
         window.addEventListener("scroll",scrollImg);
-        return () => window.removeEventListener("scroll",scrollImg);
     });
 
     return (
@@ -168,28 +168,37 @@ function info_image_1() {
                     <p className="info-image-subtext">
                         온라인 친구와 오프라인친구 목록<br/>
                         친구의 접속월드 확인<br/>
-                        친구가 제작한 public 아바타, 월드 즐겨찾기가 가능합니다
+                        친구가 제작한 public 아바타, 월드 즐겨찾기가 가능합니다.
                     </p>
                 </animated.div>
             </div>
             <div className="main-contents-img-1">
-                <animated.img style={fadeImage} src={"../imgs/2.jpg"}/>
-                <animated.img style={fadeImage} src={"../imgs/3.jpg"}/>
-                <animated.img style={fadeImage} src={"../imgs/10.jpg"}/>
-                <animated.img style={fadeImage} src={"../imgs/5.jpg"}/>
+                <Image.PreviewGroup>
+                    <animated.div style={fadeImage}>
+                        <Image src={"../imgs/2.jpg"}/>
+                    </animated.div>
+                    <animated.div style={fadeImage}>
+                        <Image src={"../imgs/3.jpg"}/>
+                    </animated.div>
+                    <animated.div style={fadeImage}>
+                        <Image src={"../imgs/10.jpg"}/>
+                    </animated.div>
+                    <animated.div style={fadeImage}>
+                        <Image src={"../imgs/5.jpg"}/>
+                    </animated.div>
+                </Image.PreviewGroup>
             </div>
         </div>
     )
 }
 
-function info_image_2() {
+const Info_image_2 = () => {
     const [fadeCheck, setFadeCheck] = useState(false);
 
     const fadeImage = useSpring({
         config:{
-            duration:300,
+            duration:500,
         },
-        delay:500,
         from:{
             transform:"translate3d(-40px,0,0)",
             opacity:0,
@@ -223,16 +232,23 @@ function info_image_2() {
 
     useEffect(()=>{
         window.addEventListener("scroll",scrollImg);
-        return () => window.removeEventListener("scroll",scrollImg);
     });
 
     return (
         <div style={{borderTop:"3px solid #333",borderBottom:"3px solid #333"}}>
             <Grid>
                 <Cell col={7} className="main-contents-img-2">
-                    <animated.img style={fadeImage} src={"../imgs/6.jpg"}/>
-                    <animated.img style={fadeImage} src={"../imgs/7.jpg"}/>
-                    <animated.img style={fadeImage} src={"../imgs/4.jpg"}/>
+                    <Image.PreviewGroup>
+                        <animated.div style={fadeImage}>
+                            <Image src={"../imgs/6.jpg"}/>
+                        </animated.div>
+                        <animated.div style={fadeImage}>
+                            <Image src={"../imgs/7.jpg"}/>
+                        </animated.div>
+                        <animated.div style={fadeImage}>
+                            <Image src={"../imgs/4.jpg"}/>
+                        </animated.div>
+                    </Image.PreviewGroup>
                 </Cell>
                 <Cell col={5} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                     <animated.div style={fadeText}>
@@ -250,14 +266,13 @@ function info_image_2() {
     )
 }
 
-function info_image_3() {
+const Info_image_3 = () => {
     const [fadeCheck, setFadeCheck] = useState(false);
 
     const fadeImage = useSpring({
         config:{
-            duration:300,
+            duration:500,
         },
-        delay:500,
         from:{
             transform:"translate3d(40px,0,0)",
             opacity:0,
@@ -283,7 +298,7 @@ function info_image_3() {
     });
 
     const scrollImg = () => {
-        if(window.scrollY >= 1500)
+        if(window.scrollY >= 1800)
         {
             setFadeCheck(true);
         }
@@ -291,7 +306,6 @@ function info_image_3() {
 
     useEffect(()=>{
         window.addEventListener("scroll",scrollImg);
-        return () => window.removeEventListener("scroll",scrollImg);
     });
 
     return (
@@ -309,8 +323,14 @@ function info_image_3() {
                     </animated.div>
                 </Cell>
                 <Cell col={6} className="main-contents-img-3">
-                    <animated.img style={fadeImage} src={"../imgs/8.jpg"}/>
-                    <animated.img style={fadeImage} src={"../imgs/9.jpg"}/>
+                    <Image.PreviewGroup>
+                        <animated.div style={fadeImage}>
+                            <Image src={"../imgs/8.jpg"}/>
+                        </animated.div>
+                        <animated.div style={fadeImage}>
+                            <Image src={"../imgs/9.jpg"}/>
+                        </animated.div>
+                    </Image.PreviewGroup>
                 </Cell>
             </Grid>
         </div>
@@ -318,7 +338,8 @@ function info_image_3() {
 }
 
 const App = () => {
-    
+    const [upCheck,setUpCheck] = useState(false);
+
     const upText = useSpring({
         config:{
             duration: 500
@@ -328,6 +349,12 @@ const App = () => {
         },
         to: {
             transform:"translate3d(0, 0px, 0)"
+        },
+        onRest:()=>{
+            if(!upCheck)
+            {
+                setUpCheck(true)
+            }
         }
     });
 
@@ -335,12 +362,11 @@ const App = () => {
         config:{
             duration: 500
         },
-        delay:500,
         from: {
-            transform:"translate3d(0, 70pt, 0)"
+            transform: "translate3d(0, 70pt, 0)"
         },
         to: {
-            transform:"translate3d(0, 0px, 0)"
+            transform: upCheck ? "translate3d(0, 0px, 0)" : "translate3d(0, 70px, 0)"
         }
     });
 
@@ -360,14 +386,14 @@ const App = () => {
                     </div>
                 </div>
             </section>
-            {app_download()}
-            {down_arrow()}
+            {App_download()}
+            {Down_arrow()}
             <Grid className="main-contents">
                 <Cell col={1}></Cell>
                 <Cell col={10}>
-                    {info_image_1()}
-                    {info_image_2()}
-                    {info_image_3()}
+                    {Info_image_1()}
+                    {Info_image_2()}
+                    {Info_image_3()}
                 </Cell>
                 <Cell col={1}></Cell>
             </Grid>

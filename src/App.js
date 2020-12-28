@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 import './App.css';
 import './css/modalStyle.css';
-import {Header, Layout, Navigation, Drawer } from 'react-mdl';
+import {Header, Layout, Navigation } from 'react-mdl';
 import Router from './component/router';
 import { useLocation } from 'react-router-dom';
 import {Grid, Cell } from 'react-mdl';
@@ -62,19 +62,6 @@ const App = () =>{
                     </animated.div>
                 </Header>
             }
-            {/* {
-                locate !== "/" &&
-                <Drawer title="Title">
-                    <Navigation>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                    </Navigation>
-                </Drawer>
-            } */}
-            
-            
             <Router/>
             {
                 locate !== "/" &&
@@ -107,12 +94,12 @@ const App = () =>{
                             <div style={{display:"flex",flexDirection:"row",alignItems:"center"}}>
                                 <p className="footer-link">
                                     <a target="blank" href="https://github.com/Aboa123/VT-VrchatTogether-">
-                                        <img width="40" src="../imgs/git.png"/><br/>
+                                        <img width="40" src={"../imgs/git.png"}/>
                                     </a>
                                 </p>
                                 <p className="footer-link">
                                     <a target="blank" href="https://twitter.com/AboaVT">
-                                        <img width="40" src="../imgs/twitter.png"/><br/>
+                                        <img width="40" src={"../imgs/twitter.png"}/>
                                     </a>
                                 </p>
                                 <p
