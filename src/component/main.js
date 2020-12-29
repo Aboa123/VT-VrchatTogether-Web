@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Grid, Cell, Content } from 'react-mdl';
 import {Image} from 'antd';
 import {animated,useSpring} from 'react-spring';
+import Mobile from './mobile';
 
 const App_download = () => {
     const [fadeCheck,setFadeCheck] = useState(false);
@@ -109,7 +110,7 @@ const Down_arrow = () => {
 
     return (
         <div className="down-arrow">
-            <animated.span class="material-icons" style={{...jumpArrow,...hideArrow,color:"#1484e3"}}>
+            <animated.span className="material-icons" style={{...jumpArrow,...hideArrow,color:"#1484e3"}}>
                 arrow_circle_down
             </animated.span>
         </div>
@@ -394,6 +395,13 @@ const App = () => {
                     {Info_image_1()}
                     {Info_image_2()}
                     {Info_image_3()}
+                </Cell>
+                <Cell col={1}></Cell>
+            </Grid>
+            <Grid>
+                <Cell col={1}></Cell>
+                <Cell col={10}>
+                    {Mobile()}
                 </Cell>
                 <Cell col={1}></Cell>
             </Grid>
