@@ -1,0 +1,41 @@
+.page404 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page404 .error-code {
+    font-family: "nLarge";
+    font-size: 4rem;
+    color:#A52A2A;
+}
+
+.page404 .error-header {
+    font-family: "nMedium";
+    font-size: 2rem;
+}
+
+.page404 .error-back {
+    font-size: 2rem;
+    font-family: "nBold";
+    cursor: pointer;
+    color:"#222";
+}
+
+@font-face {
+    font-family: "nBold";
+    src:url("../css/fonts/NetmarbleB.ttf");
+}
+
+@font-face {
+    font-family: "nLarge";
+    src:url("../css/fonts/NetmarbleL.ttf");
+}
+
+@font-face {
+    font-family: "nMedium";
+    src:url("../css/fonts/NetmarbleM.ttf");
+}

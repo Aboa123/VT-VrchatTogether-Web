@@ -1,0 +1,605 @@
+html {
+        height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1484e3;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.header-scroll {
+    background-color: #1484e3;
+}
+
+.footer {
+    padding: 40pt 0 80pt 0;
+    width: 100%;
+    background-color: #f1f3f4;
+    color: #383838;
+}
+
+.footer .footer-info {
+    font-family: "nLarge";
+    font-size: 1.1rem;
+}
+
+.footer .footer-link {
+    margin: 2pt 0;
+    margin-right: 20pt;
+}
+
+.footer .footer-link-text {
+    font-family: "nBold";
+    font-size: 1.5rem;
+    padding-bottom: 6pt;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+}
+
+.footer img {
+    vertical-align: sub;
+    margin-right: 5pt;
+}
+
+.loading-grid {
+    display: flex;
+}
+
+.loading-grid .loading-info {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d0d0d;
+    padding: 0 5vw;
+}
+
+.loading-grid .loading-info .loading-info-box {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-family: "nMedium";
+    color:#fff;
+    padding: 20pt 50pt;
+    margin:0 5vw;
+}
+
+.loading-grid .loading-info .loading-info-box .progress {
+    width:100%;
+    height:55pt;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.loading-grid .loading-info .loading-info-box .progress .progress-bar{
+    height:100%;
+    border-radius:5;
+    overflow: hidden;
+    background: rgb(36,30,152);
+    background:linear-gradient(90deg, rgba(36,30,152,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+
+.main-grid {
+    display: flex;
+}
+
+.main-grid .main-info {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url('/imgs/main_background.png') no-repeat center;
+    background-size: cover;
+    padding: 0 5vw;
+}
+
+.main-grid .main-info .main-info-box {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "nLarge";
+    color:#fff;
+    background:rgb(0,0,0,0.5);
+    padding: 20pt 50pt;
+    margin:0 5vw;
+}
+
+.main-grid .main-info .main-info-box .main-info-title {
+    font-size: 4rem;
+}
+
+.main-grid .main-info .main-info-box .main-info-subtitle {
+    font-size: 3.8rem;
+}
+
+.main-grid .main-contents {
+    padding: 20pt;
+}
+
+.main-grid .main-contents .info-title{
+    font-family: "nBold";
+    font-size: 2rem;
+    line-height: normal;
+    text-align: center;
+}
+
+.main-grid .main-contents img{
+    margin:5pt;
+    box-shadow: rgb(0,0,0,0.5) 0px 0px 5px;
+}
+
+.main-grid .main-contents .main-contents-img-1 {
+    text-align: center;
+}
+
+.main-grid .main-contents .main-contents-img-1 div {
+    display: inline;
+    cursor: pointer;
+}
+
+.main-grid .main-contents .main-contents-img-1 img {
+    width:22%;
+}
+
+.main-grid .main-contents .main-contents-img-2 {
+    text-align: center;
+}
+
+.main-grid .main-contents .main-contents-img-2 div {
+    display: inline;
+    cursor: pointer;
+}
+
+.main-grid .main-contents .main-contents-img-2 img {
+    width:30%;
+}
+
+.main-grid .main-contents .main-contents-img-3 {
+    text-align: center;
+}
+
+.main-grid .main-contents .main-contents-img-3 div {
+    display: inline;
+    cursor: pointer;
+}
+
+.main-grid .main-contents .main-contents-img-3 img{
+    width:45%;
+}
+
+.main-grid .main-contents .info-image-text {
+    font-family: "nBold";
+    font-size: 3rem;
+    line-height: normal;
+}
+
+.main-grid .main-contents .info-image-subtext {
+    font-family: "nMedium";
+    font-size: 1.5rem;
+    color:#888c8b;
+    line-height: normal;
+}
+
+.main-grid .main-mobile {
+    padding: 20pt;
+}
+
+.main-grid .main-mobile .main-mobile-title{
+    font-family: "nBold";
+    font-size: 3rem;
+    line-height: normal;
+}
+
+.main-grid .main-mobile .main-mobile-subtitle{
+    font-family: "nMedium";
+    font-size: 1.5rem;
+    color:#888c8b;
+    line-height: normal;
+}
+
+.main-grid .main-mobile .main-mobile-form {
+    display: flex;
+    justify-content: center;
+    width: 290px;
+    height: 600px;
+    overflow: hidden;
+    padding:20px 10px 10px 10px;
+    font-family: "nLarge";
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-header .main-mobile-form-header-back {
+    cursor: pointer;
+    height: 30px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-search {
+    margin-top:20px;
+    height:25px;
+    border-bottom: 1px solid #222;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-select {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-madal {
+    width: 260px;
+    height: 550px;
+    position: absolute;
+    color:white;
+    background: rgb(0,0,0,0.5);
+    z-index: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-madal .main-mobile-modal-button {
+    background: #5a82dc;
+    border-radius: 10px;
+    box-shadow: rgb(0,0,0,0.5);
+    width:80%;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-view {
+    width:280px;
+    height: 600px;
+    position: absolute;
+    z-index: 0;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-main {
+    z-index: 1;
+    width:262px;
+    height: 544px;
+    overflow: hidden;
+    text-align: -webkit-center;
+    background: linear-gradient(90deg, rgba(195,192,255,1) 0%, rgba(119,217,237,1) 100%);
+    border-radius: 20px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-main-header {
+    width: 90%;
+    box-shadow: rgb(0,0,0,0.5) 0px 0px 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 5px;
+    background: white;
+    margin-top: 10px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-main-header img {
+    border-radius: 10px;
+    border: 2px solid #be64a5;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-main-menus {
+    margin-top: 30px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-main-menu {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:105px;
+    height:100px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: rgb(0,0,0,0.5) 0px 0px 5px;
+    margin: 5px;
+    background: white;
+    vertical-align: bottom;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-header {
+    font-family: "nMedium";
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color:#5a82dc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-fheader {
+    height: 60px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-fheader-friends {
+    width:95%;
+    background:white;
+    color:#222;
+    margin-top:-30px;
+    margin-left:5px;
+    padding:5px;
+    box-shadow:rgb(0,0,0,0.5) 0px 0px 5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-alram {
+    width:262px;
+    overflow-y: scroll;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-alram .main-mobile-form-alram-list {
+    border: 1px solid #222;
+    margin: 7px 0;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-alram .main-mobile-form-alram-button {
+    border: 1px solid #b3e59f;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-flist {
+    width:262px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y: scroll;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-flist .main-mobile-form-flist-imgs img{
+    width:100%;
+    cursor: pointer;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-favorite {
+    width:262px;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-avatar {
+    width:262px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-avatar .main-mobile-form-alist-imgs img{
+    width:100%;
+    cursor: pointer;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-block {
+    width:262px;
+    overflow-y: scroll;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-block .main-mobile-form-block-list {
+    border: 1px solid #222;
+    margin: 7px 0px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.main-grid .main-mobile .main-mobile-form .main-mobile-form-world {
+    width:262px;
+}
+
+.main-grid .main-newbie {
+    height: 100vh;
+    background-color: #f7f8f9;
+    text-align: center;
+}
+
+.main-grid .main-newbie .main-newbie-title {
+    font-family: "nBold";
+    font-size: 2.5rem;
+    line-height: normal;
+}
+
+.main-grid .main-newbie .main-newbie-subtext {
+    font-family: "nMedium";
+    font-size: 1.5rem;
+    line-height: normal;
+    color: #888c8b;
+}
+
+.main-grid .app-download {
+    display: flex;
+    position: fixed;
+    width: 250pt;
+    height: 60pt;
+    right: 10pt;
+    bottom: 10pt;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.main-grid .app-download .app-download-box {
+    display: flex;
+    position:absolute;
+    height:100%;
+    background-color: #1484e3;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-grid .app-download .app-download-box .down-text {
+    color:white;
+    font-family: "nMedium";
+    font-size: 2rem;
+}
+
+.main-grid .down-arrow {
+    position: fixed;
+    width: 250pt;
+    height: 60pt;
+    bottom: 40pt;
+    left: 50%;
+    z-index: 1;
+    font-size: 1.5rem;
+}
+
+.custom-modal {
+    background: #b2dbbf;
+    max-width: 800px;
+    width: 100%;
+    height: 40%;
+}
+
+.custom-modal .modal-title {
+    text-align: center;
+    font-size: 2rem;
+    font-family: "nBold";
+    background-color: #1484e3;
+    color: white;
+    padding: 10pt 0;
+}
+
+.custom-modal .modal-info {
+    font-size: 1.5rem;
+    font-family: "nLarge";
+    line-height: 50pt;
+    margin: 1rem;
+}
+
+.custom-modal .modal-colose {
+    font-size: 2rem;
+    color:white;
+}
+
+@font-face {
+    font-family: "tm-regular";
+    src:url("../css/fonts/TmoneyRoundWindRegular.otf");
+}
+
+@font-face {
+    font-family: "tm-bold";
+    src:url("../css/fonts/TmoneyRoundWindExtraBold.otf");
+}
+
+@font-face {
+    font-family: "nBold";
+    src:url("../css/fonts/NetmarbleB.ttf");
+}
+
+@font-face {
+    font-family: "nLarge";
+    src:url("../css/fonts/NetmarbleL.ttf");
+}
+
+@font-face {
+    font-family: "nMedium";
+    src:url("../css/fonts/NetmarbleM.ttf");
+}
+
+@keyframes font-down {
+    to {
+        background: #1484e3;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .header{
+        animation-duration: 1s;
+        animation-name: font-down;
+        animation-iteration-count : 1;
+        animation-fill-mode: forwards;
+    }
+
+    .footer {
+        margin-bottom: 500pt;
+    }
+
+    .loading-grid .loading-info .loading-info-box {
+        font-size: 2rem;
+        padding: 0;
+        width: 100%;
+    }
+
+    .loading-grid .loading-info .loading-info-box .progress {
+        height: 30pt;
+    }
+
+    .main-grid .main-contents .main-contents-img-1 {
+        display: block;
+    }
+    .main-grid .main-contents .main-contents-img-1 img{
+        width: 40%;
+    }
+
+    .main-grid .main-contents .main-contents-img-2 img{
+        width: 45%;
+    }
+
+    .main-grid .main-contents .main-contents-img-3 img{
+        width: 40%;
+    }
+
+    .main-grid .main-info .main-info-box {
+        font-size: 2.5rem;
+        padding: 20pt 20pt;
+    }
+
+    .main-grid .main-info .main-info-box .main-info-title {
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .main-grid .main-info .main-info-box .main-info-subtitle {
+        font-size: 2.3rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .main-grid .app-download {
+        width: 90%;
+        height: 50pt;
+    }
+
+    .main-grid .app-download .app-download-box .down-text {
+        font-size: 1.5rem;     
+    }
+
+    .custom-modal .modal-info {
+        font-size: 1.5rem;
+        line-height: 30pt;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-info-box {
+        width: 100%;
+    }
+}

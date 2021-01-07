@@ -1,8 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import {Grid,Cell} from 'react-mdl';
 import {
     Select,
-    Badge
+    Badge,
+    Row,
+    Col
 } from 'antd';
 import {
     LeftOutlined,
@@ -36,20 +38,20 @@ function Fheader (props) {
                     <RedoOutlined />
                 </div>
             </div>
-            <Grid className="main-mobile-form-fheader-friends">
-                <Cell col={4} style={{textAlign:"center"}}>
+            <Row className="main-mobile-form-fheader-friends">
+                <Col span={8} style={{textAlign:"center"}}>
                     전체<br/>
                     123명
-                </Cell>
-                <Cell col={4} style={{textAlign:"center",borderLeft:"1px solid #222",borderRight:"1px solid #222"}}>
+                </Col>
+                <Col span={8} style={{borderLeft:"1px solid #222",borderRight:"1px solid #222",textAlign:"center"}}>
                     온라인<br/>
                     23명
-                </Cell>
-                <Cell col={4} style={{textAlign:"center"}}>
+                </Col>
+                <Col span={8} style={{textAlign:"center"}}>
                     오프라인<br/>
                     100명
-                </Cell>
-            </Grid>
+                </Col>
+            </Row>
         </div>
     )
 }
@@ -206,7 +208,7 @@ const Mobile = () => {
             </Cell>
             <Cell col={6} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                 <div className="main-mobile-form">
-                    <img className="main-mobile-view" src={"../imgs/mobile.png"} />
+                    <img alt="" className="main-mobile-view" src={"../imgs/mobile.png"} />
                     <div style={{display:"flex",justifyContent:"center",marginTop:"30px",zIndex:1,width:"100%"}}>
                         {
                             mobilePage === 1 &&
@@ -215,34 +217,34 @@ const Mobile = () => {
                                     <div style={{display:"flex",flexDirection:"row"}}>
                                         <div style={{marginRight:"10px"}}>
                                             <p style={{textAlign:"center",margin:0,color:"#be64a5"}}>Veteran</p>
-                                            <img width={80} src={"../imgs/mobile/profile.png"}/>
+                                            <img alt="" width={80} src={"../imgs/mobile/profile.png"}/>
                                         </div>
                                         <div style={{textAlign:"left",marginTop:"20px"}}>
                                             Aboa<br/>
                                             Aboa #9076
                                         </div>
                                     </div>
-                                    <Grid style={{borderTop:"1px solid #222",marginTop:"10px"}}>
-                                        <Cell col={4}>
+                                    <Row style={{borderTop:"1px solid #222",marginTop:"10px"}}>
+                                        <Col span={8}>
                                             전체<br/>
                                             123명
-                                        </Cell>
-                                        <Cell col={4} style={{borderLeft:"1px solid #222",borderRight:"1px solid #222"}}>
+                                        </Col>
+                                        <Col span={8} style={{borderLeft:"1px solid #222",borderRight:"1px solid #222"}}>
                                             온라인<br/>
                                             23명
-                                        </Cell>
-                                        <Cell col={4}>
+                                        </Col>
+                                        <Col span={8}>
                                             오프라인<br/>
                                             100명
-                                        </Cell>
-                                    </Grid>
+                                        </Col>
+                                    </Row>
                                 </div>
                                 <div className="main-mobile-form-main-menus">
                                     <div onClick={()=>setMobilePage(2)} className="main-mobile-form-main-menu">
                                         <div>
                                             <div>
-                                                <Badge count={12}>
-                                                    <img style={{width:35}} src={"/imgs/mobile/alram.png"}/>
+                                                <Badge count={7}>
+                                                    <img alt="" style={{width:35}} src={"/imgs/mobile/alram.png"}/>
                                                 </Badge>
                                             </div>
                                             알림
@@ -251,7 +253,7 @@ const Mobile = () => {
                                     <div onClick={()=>setMobilePage(3)} className="main-mobile-form-main-menu">
                                         <div>
                                             <div>
-                                                <img style={{width:35}} src={"/imgs/mobile/flist.png"}/>
+                                                <img alt="" style={{width:35}} src={"/imgs/mobile/flist.png"}/>
                                             </div>
                                             친구목록
                                         </div>
@@ -259,7 +261,7 @@ const Mobile = () => {
                                     <div onClick={()=>setModalCheck(true)} className="main-mobile-form-main-menu">
                                         <div>
                                             <div>
-                                                <img style={{width:35}} src={"/imgs/mobile/favorite.png"}/>
+                                                <img alt="" style={{width:35}} src={"/imgs/mobile/favorite.png"}/>
                                             </div>
                                             즐겨찾기 관리
                                         </div>
@@ -267,7 +269,7 @@ const Mobile = () => {
                                     <div onClick={()=>setMobilePage(5)} className="main-mobile-form-main-menu">
                                         <div>
                                             <div>
-                                                <img style={{width:35}} src={"/imgs/mobile/avatar.png"}/>
+                                                <img alt="" style={{width:35}} src={"/imgs/mobile/avatar.png"}/>
                                             </div>
                                             아바타 목록
                                         </div>
@@ -275,7 +277,7 @@ const Mobile = () => {
                                     <div onClick={()=>setMobilePage(6)} className="main-mobile-form-main-menu">
                                         <div>
                                             <div>
-                                                <img style={{width:35}} src={"/imgs/mobile/block.png"}/>
+                                                <img alt="" style={{width:35}} src={"/imgs/mobile/block.png"}/>
                                             </div>
                                             블락 관리
                                         </div>
@@ -283,7 +285,7 @@ const Mobile = () => {
                                     <div onClick={()=>setModalCheck(true)} className="main-mobile-form-main-menu">
                                         <div>
                                             <div>
-                                                <img style={{width:35}} src={"/imgs/mobile/world.png"}/>
+                                                <img alt="" style={{width:35}} src={"/imgs/mobile/world.png"}/>
                                             </div>
                                             맵 목록
                                         </div>
@@ -341,18 +343,18 @@ const Mobile = () => {
                                         </Select>
                                     </div>
                                     <div className="main-mobile-form-flist-imgs">
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/1.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/2.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/flist/3.png"}/>
                                     </div>
                                 </div>
                             </div>
@@ -371,22 +373,15 @@ const Mobile = () => {
                                     <div className="main-mobile-form-search">
                                         검색
                                     </div>
-                                    <div className="main-mobile-form-select">
-                                        <Select defaultValue="all" style={{width: 100}}>
-                                            <Option value="all">모두보기</Option>
-                                            <Option value="on">온라인</Option>
-                                            <Option value="off">오프라인</Option>
-                                        </Select>
-                                    </div>
                                     <div className="main-mobile-form-alist-imgs">
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/1.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/2.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/3.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/4.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/1.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/2.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/3.png"}/>
-                                        <img onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/4.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/1.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/2.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/3.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/4.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/1.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/2.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/3.png"}/>
+                                        <img alt="" onClick={()=>setModalCheck(true)} src={"/imgs/mobile/alist/4.png"}/>
                                     </div>
                                 </div>
                             </div>
@@ -410,19 +405,19 @@ const Mobile = () => {
                                         blockCheck ? 
                                         blockData.map(data => 
                                             <div onClick={()=>setModalCheck(true)} className="main-mobile-form-block-list">
-                                                <Grid>
-                                                    <Cell col={6}>{data.name}</Cell>
-                                                    <Cell col={6}>{data.date}</Cell>
-                                                </Grid>
+                                                <Row>
+                                                    <Col span={10}>{data.name}</Col>
+                                                    <Col span={14} style={{textAlign:"right"}}>{data.date}</Col>
+                                                </Row>
                                             </div>)
                                         :
                                         againstData.map(data => 
                                             <div onClick={()=>setModalCheck(true)} className="main-mobile-form-block-list">
                                                 {data.size}
-                                                <Grid>
-                                                    <Cell col={6}>{data.name}</Cell>
-                                                    <Cell col={6}>{data.date}</Cell>
-                                                </Grid>
+                                                <Row>
+                                                    <Col span={10}>{data.name}</Col>
+                                                    <Col span={14} style={{textAlign:"right"}}>{data.date}</Col>
+                                                </Row>
                                             </div>)
                                     }
                                 </div>

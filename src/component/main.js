@@ -3,6 +3,7 @@ import {Grid, Cell, Content } from 'react-mdl';
 import {Image} from 'antd';
 import {animated,useSpring} from 'react-spring';
 import Mobile from './mobile';
+import {Footer} from './footer';
 
 const App_download = () => {
     const [fadeCheck,setFadeCheck] = useState(false);
@@ -423,6 +424,7 @@ const App = () => {
                 </Cell>
                 <Cell col={1}></Cell>
             </Grid>
+            <Footer/>
         </Content>
     )
 }

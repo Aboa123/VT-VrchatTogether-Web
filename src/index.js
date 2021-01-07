@@ -4,7 +4,8 @@ import App from './App';
 import './css/material.css';
 import 'antd/dist/antd.css';
 import './js/material.js';
-import './index.css';
+import './css/index.css';
+import './css/404.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
