@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import './css/modalStyle.css';
 import './css/index.css';
@@ -32,10 +32,9 @@ const App = () =>{
     });
 
     
-    useState(()=>{
+    useEffect(()=>{
         window.addEventListener("scroll",changeNav);
-        return () => window.removeEventListener("scroll",changeNav);
-    },nav)
+    });
     
     let locate = useLocation();
     locate = locate.pathname;

@@ -40,8 +40,41 @@ const App_download = () => {
         },
     });
 
+    const [reWidth,setReWidth] = useState(false);
+    const resizeWidth = useSpring({
+        from: {
+            width: "0%",
+        },
+        to: {
+            width: reWidth ? "95%" : "20%",
+        }
+    });
+
+    const handleResizeWidth = () => {
+        if(window.innerWidth >= 978)
+        {
+            setReWidth(false);
+        }
+        else
+        {
+            setReWidth(true);
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener("resize",handleResizeWidth);
+        if(window.innerWidth >= 978)
+        {
+            setReWidth(false);
+        }
+        else
+        {
+            setReWidth(true);
+        }
+    });
+
     return (
-        <a href={"https://play.google.com/store/apps/details?id=com.vrct"} target="blank" className="app-download">
+        <animated.a href={"https://play.google.com/store/apps/details?id=com.vrct"} style={resizeWidth} target="blank" className="app-download">
             <animated.div className="app-download-box" style={fade}>
                 <animated.img src={'../imgs/app_icon.png'} style={{...text,width:"80pt",top:-40,left:-40,position:"absolute"}}/>
                 <div style={{height:"30pt",overflow:"hidden"}}>
@@ -50,7 +83,7 @@ const App_download = () => {
                     </animated.div>
                 </div>
             </animated.div>
-        </a>
+        </animated.a>
     )
 }
 
@@ -238,7 +271,7 @@ const Info_image_2 = () => {
 
     return (
         <div style={{borderTop:"3px solid #333",borderBottom:"3px solid #333"}}>
-            <Grid>
+            <Grid style={{justifyContent:"center"}} >
                 <Cell col={7} className="main-contents-img-2">
                     <Image.PreviewGroup>
                         <animated.div style={fadeImage}>
