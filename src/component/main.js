@@ -76,7 +76,18 @@ const App_download = () => {
     return (
         <animated.a href={"https://play.google.com/store/apps/details?id=com.vrct"} style={resizeWidth} target="blank" className="app-download">
             <animated.div className="app-download-box" style={fade}>
-                <animated.img src={'../imgs/app_icon.png'} style={{...text,width:"80pt",top:-40,left:-40,position:"absolute"}}/>
+                <animated.img
+                    src={'../imgs/app_icon.png'}
+                    style={{
+                        ...text,
+                        borderRadius:"10px",
+                        width:"80pt",
+                        top:-40,
+                        left:-40,
+                        position:"absolute",
+                        boxShadow:"rgba(0,0,0,0.5) 0px 0px 15px"
+                    }}
+                />
                 <div style={{height:"30pt",overflow:"hidden"}}>
                     <animated.div className="down-text" style={text}>
                         지금 바로 다운로드

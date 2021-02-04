@@ -46,7 +46,7 @@ const App = () =>{
                 <Header id="header" className="header" style={{position:"fixed"}}>
                     <animated.div className={nav ? "header-scroll" : ""} style={{...fade,height:"100%",width:"100%",alignItems:"center",display:"flex"}}>
                         <Navigation style={{justifyContent:"flex-end",width:"100%"}}>
-                            <a href="/">VT</a>
+                            <a href="/main">VT</a>
                         </Navigation>
                     </animated.div>
                 </Header>
